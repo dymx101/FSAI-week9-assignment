@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic React Setup</title>
+
+    <!-- React and ReactDOM CDN Links -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX support -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- Root div where React will mount the application -->
+    <div id="root"></div>
+
+    <!-- React Component and Rendering -->
+    <script type="text/babel">
+        // Simple React Component
+        function Welcome() {
+            const [count, setCount] = React.useState(0);
+
+            return (
+                <div>
+                    <h1>Welcome to React!</h1>
+                    <p>This is a simple React component</p>
+                    <button onClick={() => setCount(count + 1)}>
+                        Clicked {count} times
+                    </button>
+                </div>
+            );
+        }
+
+        // Render the component to the root div
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Welcome />);
+    </script>
+</body>
+
+</html>
