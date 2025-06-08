@@ -20,24 +20,30 @@
 
     <!-- React Component and Rendering -->
     <script type="text/babel">
-        // Simple React Component
-        function Welcome() {
-            const [count, setCount] = React.useState(0);
+        // Todo items array
+        const todoItems = [
+            'Complete React assignment',
+            'Practice JSX syntax',
+            'Review React components'
+        ];
 
+        // ToDoList Component
+        function ToDoList({ items }) {
             return (
                 <div>
-                    <h1>Welcome to React!</h1>
-                    <p>This is a simple React component</p>
-                    <button onClick={() => setCount(count + 1)}>
-                        Clicked {count} times
-                    </button>
+                    <h1>My To-Do List</h1>
+                    <ul>
+                        {items.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))}
+                    </ul>
                 </div>
             );
         }
 
         // Render the component to the root div
         const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<Welcome />);
+        root.render(<ToDoList items={todoItems} />);
     </script>
 </body>
 
